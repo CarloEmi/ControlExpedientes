@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/javafx.web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.persistence.asm-3.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javafx.graphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.persistence.jpa.jpql-3.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/postgresql-42.2.20.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.persistence.jpa.modelgen.processor-3.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jakarta.annotation-api-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javafx.base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javafx.controls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.persistence.jpa-3.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javafx.fxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jakarta.persistence-api-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javafx-swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javafx.swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.persistence.core-3.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

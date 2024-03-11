@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="panelHome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.unam.vistas.ViewsHomeController">
+   <children>
+      <Button fx:id="tema" layoutX="64.0" layoutY="144.0" mnemonicParsing="false" text="Tema" />
+      <Button fx:id="accion" layoutX="64.0" layoutY="188.0" mnemonicParsing="false" text="Accion" />
+      <TableView fx:id="tablHome" layoutX="146.0" layoutY="27.0" prefHeight="200.0" prefWidth="428.0">
+        <columns>
+          <TableColumn fx:id="columnaHome" prefWidth="75.0" text="C1" />
+          <TableColumn fx:id="descripcionHome" prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
