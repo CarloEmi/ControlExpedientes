@@ -4,9 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 import java.time.LocalDateTime;
 import java.time.LocalDate;
@@ -34,12 +37,24 @@ public class Reunion {
     private LocalDateTime horaFin;
 
     @ManyToMany(mappedBy = "reunion")
-    private Set<Involucrado> involucrado = new HashSet<>();
+    @JoinTable(
+        name = "involucrado_reunion",
+        joinColumns = @JoinColumn(name = "idReunion"),
+        inverseJoinColumns = @JoinColumn(name = "idInvolucrado"),
+        uniqueConstraints = @UniqueConstraint(columnNames = {"idReunion", "idInvolucrado"})
+    )
+    private Set<Involucrado> involucrado;
 
     @OneToMany(mappedBy = "reunion")
     private List<Asistencia> asistencia = new ArrayList<>();
 
     @ManyToMany(mappedBy = "reunion")
+    @JoinTable(
+        name = "expediente_reunion",
+        joinColumns = @JoinColumn(name = "idReunion"),
+        inverseJoinColumns = @JoinColumn(name = "idExpediente"),
+        uniqueConstraints = @UniqueConstraint(columnNames = {"idReunion", "idExpediente"})
+    )
     private Set<Expediente> expediente = new HashSet<>();
     
     @OneToMany(mappedBy = "reunion")

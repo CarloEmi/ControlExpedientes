@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -21,36 +22,40 @@ import java.util.Set;
 @Table(name = "expediente")
 public class Expediente {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_expediente")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id_expediente", nullable = false)
     private Long idExpediente;
+    @Column(name="nro_expediente", nullable = false)
+    private Long nroExpediente;
     @Column(name="iniciante", nullable = false, length = 50 )
     private String iniciante;
     @Column(name="tema", nullable = false, length = 50 )
     private String tema;
     @Column(name="texto_nota", nullable = false, length = 50 )
     private String textoNota;
-    @Column(name="fecha_ingreso_facultad")
+    @Column(name="fecha_ingreso_facultad", nullable = false)
     private LocalDate fechaingresoFacultad;
-    @Column(name="estado_expediente")
+    @Column(name="estado_expediente", nullable = false)
     private Boolean estadoExpediente;
 
-    @OneToMany(mappedBy = "expediente")
+    @OneToMany(mappedBy = "expediente", cascade = CascadeType.ALL)
     private List<Involucrado> involucrado = new ArrayList<>();
 
     @OneToMany(mappedBy = "expediente",cascade = CascadeType.ALL)
     private List<Accion> accion = new ArrayList<>();
 
-    @OneToMany(mappedBy = "expediente")
+    @OneToMany(mappedBy = "expediente", cascade = CascadeType.ALL)
     private List<Minuta> minuta = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="idReunion")
     private Set<Reunion> reunion = new HashSet<>();
 
     //contructores
     public Expediente() {
     }
-    public Expediente(String iniciante, String tema,String textoNota, LocalDate fechaingresoFacultad,Boolean estadoExpediente) {
+    public Expediente( Long nroExpediente ,String iniciante, String tema,String textoNota, LocalDate fechaingresoFacultad,Boolean estadoExpediente) {
+        this.nroExpediente = nroExpediente;
         this.iniciante = iniciante;
         this.tema=tema;
         this.textoNota = textoNota;
@@ -83,9 +88,6 @@ public class Expediente {
  
     public Boolean isEstadoExpediente() {
         return estadoExpediente;
-    }
-    public void setEstadoExpediente(boolean estadoExpediente) {
-        this.estadoExpediente = estadoExpediente;
     }
     
     public Boolean getEstadoExpediente() {
@@ -124,11 +126,15 @@ public class Expediente {
     public void setReunion(Set<Reunion> reunion) {
         this.reunion = reunion;
     }
-
-
+    public Long getNroExpediente() {
+        return nroExpediente;
+    }
+    public void setNroExpediente(Long nroExpediente) {
+        this.nroExpediente = nroExpediente;
+    }
     @Override
     public String toString() {
-        return  idExpediente + " " + iniciante +" " + tema+ " " + textoNota + " " + fechaingresoFacultad + " "  + estadoExpediente;
+        return  idExpediente + " " + nroExpediente + " " + iniciante +" " + tema+ " " + textoNota + " " + fechaingresoFacultad + " "  + estadoExpediente;
     }
 
     public void agregarAccion(Accion accion) {

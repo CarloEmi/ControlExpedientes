@@ -16,9 +16,9 @@ import edu.unam.modelo.Asistencia;
 import edu.unam.modelo.Expediente;
 import edu.unam.modelo.Involucrado;
 import edu.unam.modelo.Minuta;
-import edu.unam.modelo.OrdenDelDia;
 import edu.unam.modelo.Reunion;
-import edu.unam.modelo.Tema;
+
+
 
 
 public class Servicio {

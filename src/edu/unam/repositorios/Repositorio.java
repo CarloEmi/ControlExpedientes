@@ -8,16 +8,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import jakarta.persistence.metamodel.SingularAttribute;
 
-/**
- *
- * Repositorio usando un EntityManager. 
- * Se han agregado los siguientes métodos:
- * - iniciarTransaccion()
- * - confirmarTransaccion()
- * - descartarTransaccion()
- * 
- * -parámetros de búsqueda usando una clase basada en el patrón Utility-Builder
- */
+
 
 public class Repositorio  {
     
@@ -60,7 +51,8 @@ public class Repositorio  {
     // Devuelve un objeto de tipo (T)    
     public <T extends Object> T buscar(Class<T> clase, Object id) {
         return (T) this.em.find(clase, id);
-    }    
+    }
+     
     
     // Metodo generico
     // Acepta cualquier tipo (T) que extienda de Object

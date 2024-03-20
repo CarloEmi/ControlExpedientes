@@ -47,6 +47,7 @@ public class Involucrado {
     private List<Asistencia> asistencia = new ArrayList<>();
     
     @ManyToMany
+    @JoinColumn(name="idReunion")
     private Set<Reunion> reunion = new HashSet<>();
 
 

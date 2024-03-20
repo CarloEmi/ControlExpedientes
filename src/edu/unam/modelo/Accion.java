@@ -60,7 +60,7 @@ public class Accion {
     public Expediente getExpediente() {
         return expediente;
     }
-
+    
     public void setExpediente(Expediente expediente) {
         this.expediente = expediente;
     }
